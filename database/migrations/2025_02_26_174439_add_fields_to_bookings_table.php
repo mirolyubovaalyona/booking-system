@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('resources', function (Blueprint $table) {
-            $table->string('type')->nullable();
-            $table->decimal('price_per_hour', 10, 2)->default(0.00);
+        Schema::table('bookings', function (Blueprint $table) {
+            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->enum('payment_status', ['unpaid', 'paid'])->default('unpaid');
         });
     }
 
@@ -22,8 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('resources', function (Blueprint $table) {
-            $table->dropColumn(['type', 'price_per_hour']);
+        Schema::table('bookings', function (Blueprint $table) {
+            $table->dropColumn(['status', 'payment_status']);
         });
     }
 };
