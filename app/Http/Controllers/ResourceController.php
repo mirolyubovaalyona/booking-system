@@ -11,7 +11,7 @@ class ResourceController extends Controller
     public function index()
     {
         $resources = Resource::all();
-        return response()->json($resources);
+        return view('resources.index', compact('resources'));
     }
 
     // public function store(Request $request)
