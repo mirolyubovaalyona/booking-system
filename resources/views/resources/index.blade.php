@@ -1,4 +1,5 @@
-<html>
+@extends('layouts.main')
+@section('content')
     <div class="container">
         <h1>Список ресурсов</h1>
         <ul>
@@ -13,4 +14,4 @@
             @endif
         </ul>
     </div>
-</html>
+@endsection
